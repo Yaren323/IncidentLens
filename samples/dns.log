@@ -1,0 +1,2 @@
+Oct 15 10:07:03 server application[101]: curl: (6) Could not resolve host: example.internal
+Oct 15 10:07:05 server application[101]: Temporary failure in name resolution

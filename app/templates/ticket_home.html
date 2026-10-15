@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}IncidentLens | BT Destek Asistanı{% endblock %}
+{% block content %}
+<section class="intro"><div class="eyebrow">BT OPERASYONLARI / REHBERLİ TICKET ANALİZİ</div>
+<h1>Bir sorun yaz. Nereden başlayacağını bul.</h1>
+<p>Teknik problemi tarif et. Yerel makine öğrenmesi modeli konuyu sınıflandırır, kontrol yollarını listeler. Çözülen vakalar daha sonra yeniden kullanılabilir.</p></section>
+<div class="columns"><section class="panel"><h2>Yeni ticket</h2>
+<form action="/tickets" method="post"><label for="title">Sorun açıklaması</label>
+<textarea id="title" name="title" minlength="12" maxlength="240" required placeholder="Örnek: www.deneme.com adresine erişemiyorum">{{ previous_title or '' }}</textarea>
+<p class="hint">Yalnızca BT, ağ, sistem, erişim, hesap, servis ve altyapı sorunları. Parola veya kişisel veri yazmayın.</p>
+{% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+<button type="submit">Olası nedenleri incele →</button></form></section>
+<section class="panel"><h2>Çözülmüş analizler</h2>
+{% if tickets %}<ul class="history">{% for ticket in tickets %}<li><a href="/tickets/{{ ticket.id }}">#{{ ticket.id }} · {{ ticket.title }}</a><small>{{ ticket.created_at.strftime('%d.%m.%Y %H:%M') }} · {{ ticket.category }}</small></li>{% endfor %}</ul>
+{% else %}<p class="empty">Henüz kaydedilmiş çözüm yok. İlk ticket'ı oluşturarak başlayabilirsin.</p>{% endif %}</section></div>
+<section class="footnote">Bu uygulama öneri üretir; sistemlere bağlanmaz, komut çalıştırmaz ve erişim yetkisi değiştirmez. Model cihazında çalışır; ücretli API kullanılmaz.</section>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Olay #{{ incident.id }} · IncidentLens{% endblock %}
+{% block content %}
+<a class="back" href="/">← Tüm analizler</a>
+<section class="intro"><span class="eyebrow">INCIDENT #{{ incident.id }} / {{ incident.source|upper }}</span><h1>{{ incident.title }}</h1><p>{{ incident.summary }}</p></section>
+<section class="panel"><h2>Kanıta dayalı bulgular <span class="count">{{ incident.findings|length }}</span></h2>
+{% if incident.findings %}{% for finding in incident.findings %}
+<article class="finding"><div class="meta"><span class="tag">{{ finding.rule_id }}</span><span>Satır {{ finding.evidence_line }}</span></div><pre>{{ finding.evidence }}</pre><p>{{ finding.explanation }}</p><div class="verify"><strong>Önerilen kontrol</strong><code>{{ finding.verification }}</code></div></article>
+{% endfor %}{% else %}<p class="empty">Tanımlı kurallarla eşleşen kanıt bulunamadı. Bu, hatasız olduğu anlamına gelmez.</p>{% endif %}</section>
+<section class="panel"><h2>AI açıklaması</h2>{% if incident.ai_summary %}<p class="ai-text">{{ incident.ai_summary }}</p><p class="hint">Bu yorum doğrulanmamış model çıktısıdır; yukarıdaki log kanıtlarıyla karşılaştırılmalıdır.</p>{% else %}<p class="empty">Yerel AI kapalı veya erişilemiyor. Kural tabanlı gerçek analiz çalışmaya devam eder. AI sonucu üretilmiş gibi gösterilmez.</p>{% endif %}</section>
+<section class="panel"><h2>Ham log</h2><pre class="raw">{{ incident.raw_log }}</pre></section>
+{% endblock %}

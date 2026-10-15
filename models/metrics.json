@@ -1,0 +1,547 @@
+{
+  "counts": {
+    "total": 1900,
+    "train": 1486,
+    "validation": 414,
+    "challenge": 54
+  },
+  "validation": {
+    "scope": {
+      "it": {
+        "precision": 0.9972451790633609,
+        "recall": 1.0,
+        "f1-score": 0.9986206896551724,
+        "support": 362.0
+      },
+      "out": {
+        "precision": 1.0,
+        "recall": 0.9807692307692307,
+        "f1-score": 0.9902912621359223,
+        "support": 52.0
+      },
+      "accuracy": 0.9975845410628019,
+      "macro avg": {
+        "precision": 0.9986225895316805,
+        "recall": 0.9903846153846154,
+        "f1-score": 0.9944559758955474,
+        "support": 414.0
+      },
+      "weighted avg": {
+        "precision": 0.9975911952196537,
+        "recall": 0.9975845410628019,
+        "f1-score": 0.9975744813677302,
+        "support": 414.0
+      }
+    },
+    "category": {
+      "account": {
+        "precision": 0.6363636363636364,
+        "recall": 0.2692307692307692,
+        "f1-score": 0.3783783783783784,
+        "support": 26.0
+      },
+      "backup": {
+        "precision": 0.8076923076923077,
+        "recall": 0.8076923076923077,
+        "f1-score": 0.8076923076923077,
+        "support": 26.0
+      },
+      "ci_cd": {
+        "precision": 0.09090909090909091,
+        "recall": 0.03225806451612903,
+        "f1-score": 0.047619047619047616,
+        "support": 31.0
+      },
+      "cloud": {
+        "precision": 0.9259259259259259,
+        "recall": 0.6097560975609756,
+        "f1-score": 0.7352941176470589,
+        "support": 41.0
+      },
+      "container": {
+        "precision": 0.5588235294117647,
+        "recall": 0.7037037037037037,
+        "f1-score": 0.6229508196721312,
+        "support": 27.0
+      },
+      "database": {
+        "precision": 0.7,
+        "recall": 0.4666666666666667,
+        "f1-score": 0.56,
+        "support": 30.0
+      },
+      "disk": {
+        "precision": 0.36,
+        "recall": 0.8181818181818182,
+        "f1-score": 0.5,
+        "support": 11.0
+      },
+      "dns": {
+        "precision": 0.4482758620689655,
+        "recall": 0.8666666666666667,
+        "f1-score": 0.5909090909090909,
+        "support": 15.0
+      },
+      "email": {
+        "precision": 0.5757575757575758,
+        "recall": 0.76,
+        "f1-score": 0.6551724137931034,
+        "support": 25.0
+      },
+      "permission": {
+        "precision": 0.16666666666666666,
+        "recall": 0.6,
+        "f1-score": 0.2608695652173913,
+        "support": 10.0
+      },
+      "security": {
+        "precision": 0.9375,
+        "recall": 0.5555555555555556,
+        "f1-score": 0.6976744186046512,
+        "support": 27.0
+      },
+      "service": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "virtualization": {
+        "precision": 0.7727272727272727,
+        "recall": 0.4594594594594595,
+        "f1-score": 0.576271186440678,
+        "support": 37.0
+      },
+      "vpn": {
+        "precision": 0.6774193548387096,
+        "recall": 1.0,
+        "f1-score": 0.8076923076923077,
+        "support": 21.0
+      },
+      "web_access": {
+        "precision": 0.42857142857142855,
+        "recall": 0.4,
+        "f1-score": 0.41379310344827586,
+        "support": 15.0
+      },
+      "wifi": {
+        "precision": 0.3333333333333333,
+        "recall": 0.25,
+        "f1-score": 0.2857142857142857,
+        "support": 20.0
+      },
+      "accuracy": 0.5469613259668509,
+      "macro avg": {
+        "precision": 0.5262478740166674,
+        "recall": 0.5374481943271282,
+        "f1-score": 0.4962519401767942,
+        "support": 362.0
+      },
+      "weighted avg": {
+        "precision": 0.6143205310776729,
+        "recall": 0.5469613259668509,
+        "f1-score": 0.5482717280594533,
+        "support": 362.0
+      }
+    },
+    "scope_errors": [
+      {
+        "text": "En güzel tatil yeri neresi.",
+        "expected": "out",
+        "predicted": "it"
+      }
+    ],
+    "category_errors": [
+      {
+        "text": "Bugün fark ettik: GitHub runner disk full.",
+        "expected": "ci_cd",
+        "predicted": "disk"
+      },
+      {
+        "text": "Uygulama tarafında Shared mailbox erişim iznim yok.; güncellemeden sonra başladı.",
+        "expected": "email",
+        "predicted": "permission"
+      },
+      {
+        "text": "Bugün fark ettik: Slow query nedeniyle CPU yüksek.; sadece bir kullanıcıda oluyor.",
+        "expected": "database",
+        "predicted": "disk"
+      },
+      {
+        "text": "Destek rica ediyorum: Terraform cloud provider auth failed.; birkaç kişide tekrarlandı.",
+        "expected": "cloud",
+        "predicted": "email"
+      },
+      {
+        "text": "Uygulama tarafında AWS role assumption failed.; birkaç kişide tekrarlandı.",
+        "expected": "cloud",
+        "predicted": "service"
+      },
+      {
+        "text": "Sabah saatlerinden beri GitHub runner disk full.; erişim engelleniyor.",
+        "expected": "ci_cd",
+        "predicted": "disk"
+      },
+      {
+        "text": "Kontrol edebilir misiniz, DNS var fakat gateway erişilemiyor.; hangi kontrolleri yapmalıyız?",
+        "expected": "wifi",
+        "predicted": "dns"
+      },
+      {
+        "text": "Sabah saatlerinden beri TLS sertifikası süresi doldu.; güncellemeden sonra başladı.",
+        "expected": "security",
+        "predicted": "disk"
+      },
+      {
+        "text": "Kontrol edebilir misiniz, vSphere permission denied.; hata aralıklı yaşanıyor.",
+        "expected": "virtualization",
+        "predicted": "permission"
+      },
+      {
+        "text": "Uzaktan çalışan kullanıcıda İstemci AP üzerinde bağlantı kuramıyor.",
+        "expected": "wifi",
+        "predicted": "web_access"
+      },
+      {
+        "text": "İşlem sırasında Shared mailbox erişim iznim yok.; kontrol edebilir misiniz?",
+        "expected": "email",
+        "predicted": "permission"
+      },
+      {
+        "text": "Üretim ortamında Defender endpoint malware detected.; hata aralıklı yaşanıyor.",
+        "expected": "security",
+        "predicted": "virtualization"
+      },
+      {
+        "text": "Uzaktan çalışan kullanıcıda vSphere permission denied.; erişim engelleniyor.",
+        "expected": "virtualization",
+        "predicted": "permission"
+      },
+      {
+        "text": "Test ortamında vCenter host disconnected.; sadece bir kullanıcıda oluyor.",
+        "expected": "virtualization",
+        "predicted": "database"
+      },
+      {
+        "text": "Sunucuda vCenter host disconnected.; birkaç kişide tekrarlandı.",
+        "expected": "virtualization",
+        "predicted": "wifi"
+      },
+      {
+        "text": "Kullanıcı bildirimi: Jenkins build başarısız.; daha önce çalışıyordu.",
+        "expected": "ci_cd",
+        "predicted": "database"
+      },
+      {
+        "text": "Birden fazla kullanıcıda GitHub runner disk full.; adım adım kontrol etmek istiyorum.",
+        "expected": "ci_cd",
+        "predicted": "disk"
+      },
+      {
+        "text": "Birden fazla kullanıcıda AWS role assumption failed.; daha önce çalışıyordu.",
+        "expected": "cloud",
+        "predicted": "container"
+      },
+      {
+        "text": "Bir kullanıcıda Azure subscription deployment failed.; adım adım kontrol etmek istiyorum.",
+        "expected": "cloud",
+        "predicted": "ci_cd"
+      },
+      {
+        "text": "Sabah saatlerinden beri Disaster recovery failover test failed.; daha önce çalışıyordu.",
+        "expected": "backup",
+        "predicted": "virtualization"
+      },
+      {
+        "text": "Birden fazla kullanıcıda Ansible playbook permission denied.; birkaç kişide tekrarlandı.",
+        "expected": "ci_cd",
+        "predicted": "permission"
+      },
+      {
+        "text": "BT ekibine bildirim: TLS sertifikası süresi doldu.; çözüm için destek gerekiyor.",
+        "expected": "security",
+        "predicted": "wifi"
+      },
+      {
+        "text": "Test ortamında Erişim kontrol listesi yanlış görünüyor.; birkaç kişide tekrarlandı.",
+        "expected": "permission",
+        "predicted": "dns"
+      },
+      {
+        "text": "Bir kullanıcıda LDAP bind invalid credentials dönüyor.; kontrol edebilir misiniz?",
+        "expected": "account",
+        "predicted": "container"
+      },
+      {
+        "text": "Birden fazla kullanıcıda Terraform plan hata veriyor.; daha önce çalışıyordu.",
+        "expected": "ci_cd",
+        "predicted": "vpn"
+      },
+      {
+        "text": "Kullanıcı bildirimi: Kubernetes CrashLoopBackOff.; güncellemeden sonra başladı.",
+        "expected": "container",
+        "predicted": "service"
+      },
+      {
+        "text": "Üretim ortamında Azure subscription deployment failed.; çözüm için destek gerekiyor.",
+        "expected": "cloud",
+        "predicted": "ci_cd"
+      },
+      {
+        "text": "Sunucuda Database read replica unavailable.; birkaç kişide tekrarlandı.",
+        "expected": "database",
+        "predicted": "email"
+      },
+      {
+        "text": "Kontrol edebilir misiniz, VM disk locked hatası.; birkaç kişide tekrarlandı.",
+        "expected": "virtualization",
+        "predicted": "disk"
+      },
+      {
+        "text": "Uzaktan çalışan kullanıcıda vSphere permission denied.; çözüm için destek gerekiyor.",
+        "expected": "virtualization",
+        "predicted": "container"
+      },
+      {
+        "text": "Sabah saatlerinden beri GitHub runner disk full.; kontrol edebilir misiniz?",
+        "expected": "ci_cd",
+        "predicted": "disk"
+      },
+      {
+        "text": "Acil destek: DNS var fakat gateway erişilemiyor.; nereden başlamalıyım?",
+        "expected": "wifi",
+        "predicted": "web_access"
+      },
+      {
+        "text": "Destek rica ediyorum: Veritabanı sunucusu bağlantı reddediyor.; adım adım kontrol etmek istiyorum.",
+        "expected": "database",
+        "predicted": "wifi"
+      },
+      {
+        "text": "Sunucuda Shared mailbox erişim iznim yok.; erişim engelleniyor.",
+        "expected": "email",
+        "predicted": "permission"
+      },
+      {
+        "text": "Slow query nedeniyle CPU yüksek.; adım adım kontrol etmek istiyorum.",
+        "expected": "database",
+        "predicted": "disk"
+      },
+      {
+        "text": "Uzaktan çalışan kullanıcıda Veritabanı index bozulmuş.",
+        "expected": "database",
+        "predicted": "backup"
+      },
+      {
+        "text": "Bir kullanıcıda İstemci AP üzerinde bağlantı kuramıyor.; sebebi ne olabilir?",
+        "expected": "wifi",
+        "predicted": "web_access"
+      },
+      {
+        "text": "Uzaktan çalışan kullanıcıda Mail flow rule yanlış çalışıyor.; kontrol edebilir misiniz?",
+        "expected": "email",
+        "predicted": "dns"
+      },
+      {
+        "text": "Kontrol edebilir misiniz, Defender endpoint malware detected.; erişim engelleniyor.",
+        "expected": "security",
+        "predicted": "virtualization"
+      },
+      {
+        "text": "Üretim ortamında WAF isteği engelliyor olabilir.; birkaç kişide tekrarlandı.",
+        "expected": "web_access",
+        "predicted": "email"
+      }
+    ]
+  },
+  "challenge": {
+    "scope": {
+      "it": {
+        "precision": 0.9411764705882353,
+        "recall": 1.0,
+        "f1-score": 0.9696969696969697,
+        "support": 48.0
+      },
+      "out": {
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1-score": 0.6666666666666666,
+        "support": 6.0
+      },
+      "accuracy": 0.9444444444444444,
+      "macro avg": {
+        "precision": 0.9705882352941176,
+        "recall": 0.75,
+        "f1-score": 0.8181818181818181,
+        "support": 54.0
+      },
+      "weighted avg": {
+        "precision": 0.9477124183006536,
+        "recall": 0.9444444444444444,
+        "f1-score": 0.9360269360269361,
+        "support": 54.0
+      }
+    },
+    "category": {
+      "account": {
+        "precision": 1.0,
+        "recall": 0.6666666666666666,
+        "f1-score": 0.8,
+        "support": 3.0
+      },
+      "backup": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 3.0
+      },
+      "ci_cd": {
+        "precision": 1.0,
+        "recall": 0.6666666666666666,
+        "f1-score": 0.8,
+        "support": 3.0
+      },
+      "cloud": {
+        "precision": 1.0,
+        "recall": 0.6666666666666666,
+        "f1-score": 0.8,
+        "support": 3.0
+      },
+      "container": {
+        "precision": 0.6666666666666666,
+        "recall": 0.6666666666666666,
+        "f1-score": 0.6666666666666666,
+        "support": 3.0
+      },
+      "database": {
+        "precision": 1.0,
+        "recall": 0.6666666666666666,
+        "f1-score": 0.8,
+        "support": 3.0
+      },
+      "disk": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 3.0
+      },
+      "dns": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 3.0
+      },
+      "email": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 3.0
+      },
+      "permission": {
+        "precision": 0.75,
+        "recall": 1.0,
+        "f1-score": 0.8571428571428571,
+        "support": 3.0
+      },
+      "security": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 3.0
+      },
+      "service": {
+        "precision": 0.75,
+        "recall": 1.0,
+        "f1-score": 0.8571428571428571,
+        "support": 3.0
+      },
+      "virtualization": {
+        "precision": 1.0,
+        "recall": 0.6666666666666666,
+        "f1-score": 0.8,
+        "support": 3.0
+      },
+      "vpn": {
+        "precision": 0.75,
+        "recall": 1.0,
+        "f1-score": 0.8571428571428571,
+        "support": 3.0
+      },
+      "web_access": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 3.0
+      },
+      "wifi": {
+        "precision": 0.6,
+        "recall": 1.0,
+        "f1-score": 0.75,
+        "support": 3.0
+      },
+      "accuracy": 0.875,
+      "macro avg": {
+        "precision": 0.9072916666666666,
+        "recall": 0.875,
+        "f1-score": 0.8742559523809523,
+        "support": 48.0
+      },
+      "weighted avg": {
+        "precision": 0.9072916666666666,
+        "recall": 0.875,
+        "f1-score": 0.8742559523809524,
+        "support": 48.0
+      }
+    },
+    "scope_errors": [
+      {
+        "text": "Saçımı nasıl şekillendireyim",
+        "expected": "out",
+        "predicted": "it"
+      },
+      {
+        "text": "Docker temalı bir masal anlat",
+        "expected": "out",
+        "predicted": "it"
+      },
+      {
+        "text": "Bugün hangi burç şanslı",
+        "expected": "out",
+        "predicted": "it"
+      }
+    ],
+    "category_errors": [
+      {
+        "text": "Kerberos kimlik doğrulama hatası alıyorum",
+        "expected": "account",
+        "predicted": "wifi"
+      },
+      {
+        "text": "Veritabanı bağlantı havuzu tükendi",
+        "expected": "database",
+        "predicted": "vpn"
+      },
+      {
+        "text": "AWS IAM rolü access denied diyor",
+        "expected": "cloud",
+        "predicted": "permission"
+      },
+      {
+        "text": "Kubernetes pod CrashLoopBackOff",
+        "expected": "container",
+        "predicted": "service"
+      },
+      {
+        "text": "Terraform plan provider auth failed",
+        "expected": "ci_cd",
+        "predicted": "container"
+      },
+      {
+        "text": "vCenter host disconnected",
+        "expected": "virtualization",
+        "predicted": "wifi"
+      }
+    ]
+  },
+  "disclaimer": "Synthetic templated data; challenge examples are independent authored phrases, not production performance."
+}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Incident #{{ ticket.id }} | IncidentLens{% endblock %}
+{% block content %}
+<a class="back" href="/">← Analizler</a>
+<section class="intro compact"><div class="eyebrow">TICKET #{{ ticket.id }} / {{ ticket.category | upper }}</div>
+<h1>{{ ticket.title }}</h1><p>{{ 'Çözüm kaydedildi' if ticket.state == 'resolved' else 'Ön değerlendirme · Kesin teşhis değil' }} · Yerel makine öğrenmesi + onaylı kontrol rehberleri</p></section>
+{% if matches and ticket.state == 'open' %}<section class="panel matched"><h2>Önceki çözülmüş vakalar</h2><p class="hint">AI çağrısı yapmadan, PostgreSQL'deki geçmiş kayıtlar kontrol edildi. Eşleşmeler öneridir, aynı kök neden garantisi değildir.</p>
+{% for old in matches %}<div class="previous"><a href="/tickets/{{ old.id }}">#{{ old.id }} · {{ old.title }}</a><div><strong>Önceki çözüm:</strong> {{ guides[old.resolution_id].title if old.resolution_id in guides else 'Kayıt' }}</div>{% if old.resolution_notes %}<div class="hint">Not: {{ old.resolution_notes }}</div>{% endif %}</div>{% endfor %}</section>{% endif %}
+<section class="panel"><h2>Olası nedenler ve kontrol adımları</h2><p class="hint">Bir nedeni açarak adımları incele. Bu seçenekler olasılık sıralaması değildir; bulgu toplanmadan kesin teşhis konulamaz.</p>
+{% for guide in options %}<details class="guide" {% if ticket.state == 'resolved' and ticket.resolution_id == guide.id %}open{% endif %}><summary><span>{{ loop.index }}. {{ guide.title }}</span><span class="chevron">⌄</span></summary><div class="guide-body"><p>{{ guide.why }}</p><ol>{% for step in guide.steps %}<li>{{ step }}</li>{% endfor %}</ol>
+{% if guide.commands %}<h3>Örnek kontrol komutları</h3>{% for command in guide.commands %}<pre class="command"><code>{{ command }}</code></pre>{% endfor %}<p class="hint">Komutları yalnızca uygun işletim sisteminde ve yetkiniz dahilinde kullanın. Alan adları örnektir, gerçek hedefle değiştirin.</p>{% endif %}</div></details>{% endfor %}
+</section>
+{% if ticket.state == 'open' %}<section class="panel"><h2>Analizi sonlandır</h2><p class="hint">Gerçekten uyguladığın kontrol yolunu seç. Çözülmediyse yanlış bir başarı kaydı oluşturma.</p>
+<details class="finish"><summary>Analizi sonlandır →</summary><div class="finish-grid"><form method="post" action="/tickets/{{ ticket.id }}/resolve"><label for="guide_id">1. Sorun çözüldü: kullanılan çözüm yolu</label><select name="guide_id" id="guide_id" required>{% for guide in options %}<option value="{{ guide.id }}">{{ guide.title }}</option>{% endfor %}</select>
+<label for="notes">Doğrulanan sonuç / çözüm notu</label><textarea id="notes" name="notes" maxlength="1000" placeholder="Örnek: DNS kaydı düzeltildi, farklı cihazlardan erişim doğrulandı."></textarea><button type="submit">Çözümü kaydet</button></form>
+<form method="post" action="/tickets/{{ ticket.id }}/discard" onsubmit="return confirm('Bu ticket ve tüm seçenekleri kalıcı olarak silinsin mi?');"><h3>2. Çözüme gerek kalmadı</h3><p class="hint">Ticket ve bu ticket'a ait veriler kalıcı silinir. Eski tamamlanmış vakalar etkilenmez.</p><button class="danger" type="submit">Ticket'ı sil</button></form></div></details></section>
+{% else %}<section class="panel"><h2>Kaydedilmiş çözüm</h2><p><strong>Yol:</strong> {{ guides[ticket.resolution_id].title if ticket.resolution_id in guides else 'Bilinmiyor' }}</p><p><strong>Not:</strong> {{ ticket.resolution_notes or 'Not eklenmemiş' }}</p></section>{% endif %}
+{% endblock %}

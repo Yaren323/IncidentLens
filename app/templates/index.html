@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="intro"><span class="eyebrow">OPERATIONS / ANALYSIS</span><h1>Arızayı kanıtlarıyla incele.</h1><p>Linux ve Windows loglarını yükle, bilinen hata örüntülerini tespit et, doğrulama adımlarını görüntüle.</p></section>
+<div class="columns">
+  <section class="panel"><h2>Yeni analiz</h2><form method="post" action="/incidents" enctype="multipart/form-data">
+    <label for="title">Olay başlığı</label><input id="title" name="title" required minlength="3" maxlength="180" placeholder="Nginx başlatılamıyor">
+    <label for="source">Kaynak</label><select id="source" name="source"><option value="linux">Linux</option><option value="windows">Windows</option><option value="other">Diğer</option></select>
+    <label for="log_file">Log dosyası (.log veya .txt, en fazla 256 KB)</label><input id="log_file" type="file" name="log_file" accept=".log,.txt" required>
+    <button type="submit">Analizi başlat →</button>
+  </form><p class="hint">Örnek dosyalar <code>samples/</code> klasöründe. Gerçek kişisel veya kurumsal log yüklemeyin.</p></section>
+  <section class="panel"><h2>Son analizler</h2>{% if incidents %}<ul class="history">{% for incident in incidents %}<li><a href="/incidents/{{ incident.id }}">#{{ incident.id }} · {{ incident.title }}</a><small>{{ incident.source }} · {{ incident.created_at.strftime('%d.%m.%Y %H:%M') }}</small></li>{% endfor %}</ul>{% else %}<p class="empty">Henüz analiz yok. İlk örnek logu yükleyerek başlayabilirsin.</p>{% endif %}</section>
+</div>
+{% endblock %}

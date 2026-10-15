@@ -1,0 +1,42 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python virtual environments
+.venv/
+.venv311/
+.venv-correct/
+venv/
+env/
+
+# Python cache
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyo
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Editor and operating system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+!samples/*.log
+*.tmp
+
+# Local model caches
+.cache/
+
+# Backup and old files
+*.bak
+*.bak-*
+*.old.joblib
+*_backup.csv

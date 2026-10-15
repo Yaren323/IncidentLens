@@ -1,0 +1,55 @@
+﻿text,category
+FortiClient VPN bağlantısı permission denied ile kesiliyor,vpn
+GlobalProtect VPN hesabım yetkisiz diyor,vpn
+VPN oturumu MFA ekranından geçemiyor,vpn
+Domain hesabım kilitli olduğu için Windows açılmıyor,account
+Kerberos kimlik doğrulama hatası alıyorum,account
+AD hesabım devre dışı görünüyor,account
+Paylaşım klasöründe erişim reddedildi,permission
+Linux dizinine yazarken permission denied alıyorum,permission
+NTFS klasör iznim olmadığı için dosyayı açamıyorum,permission
+DNS isim çözümleme SERVFAIL hatası veriyor,dns
+nslookup sunucu adı için NXDOMAIN döndürüyor,dns
+CNAME yanlış sunucuya yönlendiriyor,dns
+Şirket portalı 502 Bad Gateway dönüyor,web_access
+Tarayıcıdan iç uygulamaya bağlanamıyorum,web_access
+Web sayfası 403 Forbidden gösteriyor,web_access
+systemd servis başlatılamıyor,service
+Nginx bind address already in use diyor,service
+IIS application pool sürekli kapanıyor,service
+Linux no space left on device hatası var,disk
+Sunucuda inode tükendi,disk
+C diski tamamen doldu,disk
+Wi-Fi üzerinden IP alamıyorum,wifi
+DHCP lease yenilenmiyor,wifi
+Kablosuz ağ kimlik doğrulama başarısız,wifi
+Outlook posta gönderemiyor,email
+Exchange shared mailbox erişimi yok,email
+SMTP relay denied hatası,email
+PostgreSQL too many clients already hatası,database
+SQL Server transaction log doldu,database
+Veritabanı bağlantı havuzu tükendi,database
+Azure VM NSG yüzünden erişilemiyor,cloud
+AWS IAM rolü access denied diyor,cloud
+Azure Key Vault erişimi reddedildi,cloud
+Kubernetes pod CrashLoopBackOff,container
+Docker volume mount permission denied,container
+K8s ImagePullBackOff hatası,container
+GitHub Actions job failed,ci_cd
+Jenkins runner offline,ci_cd
+Terraform plan provider auth failed,ci_cd
+SIEM failed login alarmı verdi,security
+EDR malware alarmı oluşturdu,security
+Defender agent offline görünüyor,security
+Veeam backup job failed,backup
+Restore point bulunamıyor,backup
+Yedekleme deposu dolmuş,backup
+VMware ESXi datastore full,virtualization
+Hyper-V sanal makine açılmıyor,virtualization
+vCenter host disconnected,virtualization
+Saçımı nasıl şekillendireyim,out_of_scope
+Bana kolay yemek tarifi ver,out_of_scope
+VPN ile ilgili aşk şiiri yaz,out_of_scope
+Docker temalı bir masal anlat,out_of_scope
+DNS kelimesiyle bir rap şarkısı yaz,out_of_scope
+Bugün hangi burç şanslı,out_of_scope
